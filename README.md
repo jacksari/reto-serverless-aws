@@ -67,7 +67,9 @@ npx jest
   2. DynamoDb
   3. SNS
   4. SQS
-  5. Secrets Manager
+  5. EventBridge
+  6. RDS
+  7. Secrets Manager
 - NodeJs
 - Jest
 - Typescript
