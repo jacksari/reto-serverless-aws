@@ -1,0 +1,96 @@
+{
+  "post": {
+    "summary": "Crear una cita",
+    "description": "Permite crear una cita para un asegurado",
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "#/components/schemas/AppointmentInput"
+          },
+          "example": {
+            "insuredId": "00013",
+            "scheduleId": 114,
+            "countryISO": "CL"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Cita creada exitosamente",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "Agendamiento recibido"
+                },
+                "data": {
+                  "$ref": "#/components/schemas/AppointmentInput"
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Datos inválidos",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Datos inválidos"
+                },
+                "details": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "property": {
+                        "type": "string",
+                        "example": "countryISO"
+                      },
+                      "constraints": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "example": {
+                          "isIn": "countryISO must be one of the following values: PE, CL"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+
+      "500": {
+        "description": "Error interno del servidor",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Error interno al crear la cita"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

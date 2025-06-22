@@ -1,0 +1,91 @@
+{
+  "get": {
+    "summary": "Listar todas las citas",
+    "responses": {
+      "200": {
+        "description": "Lista de citas",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "example": "lista de citas"
+                },
+                "item": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "insuredId": {
+                        "type": "string",
+                        "description": "Código del asegurado (5 dígitos con ceros a la izquierda)",
+                        "example": "00001"
+                      },
+                      "scheduleId": {
+                        "type": "integer",
+                        "example": 101
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-06-21T05:30:05.970Z"
+                      },
+                      "countryISO": {
+                        "type": "string",
+                        "example": "PE"
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": ["pending", "completed"],
+                        "example": "pending"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "Datos inválidos",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "example": "Datos inválidos"
+                },
+                "details": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "property": {
+                        "type": "string",
+                        "example": "countryISO"
+                      },
+                      "constraints": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "string"
+                        },
+                        "example": {
+                          "isIn": "countryISO must be one of the following values: PE, CL"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

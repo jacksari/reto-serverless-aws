@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "@serverless/typescript": "^4.15.1",
+    "@types/aws-lambda": "^8.10.150",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.3",
+    "jest": "^30.0.2",
+    "serverless-esbuild": "^1.55.1",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.830.0",
+    "@aws-sdk/client-eventbridge": "^3.830.0",
+    "@aws-sdk/client-secrets-manager": "^3.830.0",
+    "@aws-sdk/client-sns": "^3.830.0",
+    "@aws-sdk/client-sqs": "^3.831.0",
+    "@aws-sdk/lib-dynamodb": "^3.830.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "mysql2": "^3.14.1"
+  }
+}

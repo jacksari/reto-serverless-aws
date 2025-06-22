@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Reto Rimac - API de Citas",
+    "version": "1.0.0",
+    "description": "Documentación de la API para agendamiento de citas usando AWS Lambda, DynamoDB, SNS, SQS y EventBridge."
+  },
+  "paths": {
+    "/appointments": {
+      "$ref": "./appointments/postAppointments.json"
+    },
+    "/appointments/all": {
+      "$ref": "./appointments/appointmentsAll.json"
+    },
+    "/appointments/{insuredId}": {
+      "$ref": "./appointments/appointmentsByInsured.json"
+    }
+  },
+  "components": {
+    "schemas": {
+      "AppointmentInput": {
+        "type": "object",
+        "properties": {
+          "insuredId": {
+            "type": "string",
+            "example": "00001"
+          },
+          "scheduleId": {
+            "type": "integer",
+            "example": 101
+          },
+          "countryISO": {
+            "type": "string",
+            "example": "PE"
+          }
+        },
+        "required": ["insuredId", "scheduleId", "countryISO"]
+      }
+    }
+  }
+}

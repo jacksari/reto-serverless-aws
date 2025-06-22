@@ -1,0 +1,47 @@
+{
+  "components": {
+    "schemas": {
+      "ErrorNotFound": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Not Found"
+          }
+        }
+      },
+      "ErrorServer": {
+        "type": "object",
+        "description": "Error del servidor.",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "responses": {
+      "NotFound": {
+        "description": "No encontrado.",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorNotFound"
+            }
+          }
+        }
+      },
+      "ErrorServer": {
+        "description": "Error del servidor.",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorServer"
+            }
+          }
+        }
+      }
+    }
+  }
+}
