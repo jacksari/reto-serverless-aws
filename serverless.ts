@@ -120,6 +120,10 @@ const serverlessConfiguration: AWS = {
               AttributeName: "id",
               AttributeType: "S",
             },
+            {
+              AttributeName: "insuredId",
+              AttributeType: "S",
+            },
           ],
           KeySchema: [
             {
@@ -128,6 +132,20 @@ const serverlessConfiguration: AWS = {
             },
           ],
           BillingMode: "PAY_PER_REQUEST",
+          GlobalSecondaryIndexes: [
+            {
+              IndexName: "InsuredIdIndex",
+              KeySchema: [
+                {
+                  AttributeName: "insuredId",
+                  KeyType: "HASH",
+                },
+              ],
+              Projection: {
+                ProjectionType: "ALL",
+              },
+            },
+          ],
         },
       },
 

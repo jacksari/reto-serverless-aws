@@ -20,6 +20,8 @@ export class GetAppointmentsByInsuredController {
       };
     }
 
+    console.log("dtos get by insured:", dto, errors);
+
     try {
       const repository = new DynamoAppointmentRepository();
       const useCase = new GetAppointmentsByInsuredUseCase(repository);

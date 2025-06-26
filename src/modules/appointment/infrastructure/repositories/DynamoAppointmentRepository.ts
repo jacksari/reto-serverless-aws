@@ -27,8 +27,10 @@ export class DynamoAppointmentRepository implements AppointmentRepository {
     insuredId: string,
     status?: string
   ): Promise<Appointment[]> {
+    console.log('dinamo params:', insuredId, status)
     const params: QueryCommandInput = {
       TableName: TABLE_NAME,
+      IndexName: "InsuredIdIndex",
       KeyConditionExpression: "insuredId = :id",
       ExpressionAttributeValues: {
         ":id": insuredId,

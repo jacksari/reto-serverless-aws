@@ -6,6 +6,7 @@ const mockRepository: jest.Mocked<AppointmentRepository> = {
   save: jest.fn(),
   findByInsuredId: jest.fn(),
   findAll: jest.fn(),
+  updateStatusById: jest.fn()
 };
 
 describe("GetAppointmentsByInsuredUseCase", () => {
@@ -23,6 +24,7 @@ describe("GetAppointmentsByInsuredUseCase", () => {
         createdAt: "2025-06-21T05:46:08.071Z",
         countryISO: "PE",
         status: "completed",
+        id: '1'
       },
     ];
 
@@ -47,6 +49,7 @@ describe("GetAppointmentsByInsuredUseCase", () => {
         createdAt: "2025-06-21T05:46:08.071Z",
         countryISO: "PE",
         status: "completed",
+        id: '1'
       },
     ];
 
